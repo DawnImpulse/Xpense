@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+
+        <item>Food</item>
+        <item>Bills</item>
+        <item>Transportation</item>
+        <item>Shopping</item>
+        <item>Entertainment</item>
+        <item>Education</item>
+        <item>Others</item>
+        <item>Salary</item>
+        <item>Deposits</item>
+        <item>Savings</item>
+        <item>Interest</item>
+        <item>PriceMoney</item>
+
+    </string-array>
+
+
+    <string-array name="drawerList">
+        <item>Overview</item>
+        <item>Category</item>
+    </string-array>
+</resources>

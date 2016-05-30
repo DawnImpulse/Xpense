@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.dawnimpulse.xpense.AddTransactionActivity"
+    tools:showIn="@layout/activity_add_transaction">
+    <EditText
+        android:id="@+id/addTransactionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/addTransactionNameHint"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:layout_marginTop="16dp"
+        android:id="@+id/Type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:contextClickable="false"
+        android:clickable="false">
+
+    </Spinner>
+
+
+    <Spinner
+        android:layout_marginTop="16dp"
+        android:id="@+id/Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:contextClickable="false"
+        android:clickable="false">
+
+    </Spinner>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/rupeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16sp"
+            android:text="@string/Rupee"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4sp"
+            android:layout_toRightOf="@id/rupeeText"
+            android:hint="@string/valueNull"
+            android:inputType="number"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
