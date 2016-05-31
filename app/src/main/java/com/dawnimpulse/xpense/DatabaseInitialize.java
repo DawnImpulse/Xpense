@@ -14,7 +14,7 @@ public class DatabaseInitialize extends AppCompatActivity {
     public void databaseCreation(SQLiteDatabase myDatabase) {
 
         myDatabase.execSQL(CREATE + "Categories(CategoryName VARCHAR(50) NOT NULL);");
-        myDatabase.execSQL(CREATE + "Transact( _id INTEGER PRIMARY KEY AUTOINCREMENT,SUM VARCHAR(20) NOT NULL,CategoryName VARCHAR(50),Note VARCHAR(50),Type VARCHAR(20));");
+        myDatabase.execSQL(CREATE + "Transact( _id INTEGER PRIMARY KEY AUTOINCREMENT,SUM INTEGER NOT NULL,CategoryName VARCHAR(50),Note VARCHAR(50),Type VARCHAR(20));");
     }
 
     public void expenseCategoryInitialize(SQLiteDatabase myDatabase, String[] category)

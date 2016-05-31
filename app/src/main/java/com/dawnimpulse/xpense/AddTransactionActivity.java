@@ -133,7 +133,7 @@ public class AddTransactionActivity extends AppCompatActivity implements OnItemS
         String note = text.getText().toString();
 
         EditText textAmount = (EditText) findViewById(R.id.editAmount);
-        String sum = textAmount.getText().toString();
+        int sum = Integer.parseInt(textAmount.getText().toString());
 
         String type = returnString(value);
 

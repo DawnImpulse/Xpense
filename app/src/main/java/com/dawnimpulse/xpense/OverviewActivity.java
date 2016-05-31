@@ -2,9 +2,9 @@ package com.dawnimpulse.xpense;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,8 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.database.sqlite.SQLiteDatabase;
+import com.dawnimpulse.xpense.R;
 
 public class OverviewActivity extends AppCompatActivity {
 
@@ -21,11 +20,28 @@ public class OverviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Open Database Connection
 
+        SQLiteDatabase sqLiteDatabase = openOrCreateDatabase("Xpense",MODE_PRIVATE,null);
+
+        DatabaseFetchActivity databaseFetchActivity = new DatabaseFetchActivity();
 
         //Receiving Intent
         Intent intent = getIntent();
         setContentView(R.layout.activity_overview);
+
+        int saving =  databaseFetchActivity.setSaving(sqLiteDatabase);
+        int expense = databaseFetchActivity.setExpense(sqLiteDatabase);
+        int balance = databaseFetchActivity.returnBalance(sqLiteDatabase);
+
+        TextView textView = (TextView) findViewById(R.id.savingAmount1);
+        textView.setText(Integer.toString(saving));
+
+        TextView textView1 = (TextView) findViewById(R.id.expenditureAmount1);
+        textView1.setText(Integer.toString(expense));
+
+        TextView textView2 = (TextView) findViewById(R.id.balance);
+        textView2.setText(Integer.toString(balance));
 
 
         //Finding The Navigation Drawer ListView
@@ -54,8 +70,6 @@ public class OverviewActivity extends AppCompatActivity {
             }
         });
 
-
-        SQLiteDatabase sqLiteDatabase = openOrCreateDatabase("Xpense",MODE_PRIVATE,null);
 
         //Get Cursor
         Cursor resultSet = sqLiteDatabase.rawQuery("SELECT oid as _id , SUM,CategoryName,Type,Note FROM Transact", null);
